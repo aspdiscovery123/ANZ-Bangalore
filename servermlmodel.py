@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-model=pickle.load(open(r"F:\mlp.pkl","rb"))
+model=pickle.load(open(r"F:\model.pkl","rb"))
 from flask import Flask,request,jsonify
 
 app=Flask(__name__)
@@ -18,7 +18,7 @@ app=Flask(__name__)
 def predict():
     data=request.get_json(force=True)
     print(data)
-    predi=model.predict(np.array([[data["ex']]))
+    predi=model.predict(np.array([[data["ex"]]]))
     output=predi[0]
     print(output)
     
